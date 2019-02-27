@@ -1,8 +1,38 @@
 html {
-  background-color: #e7ecf0;
+  background-color: #000000;
   box-sizing: border-box;
+  color: white;
+}
+/* Home */
+.navbar {
+  background-color: #151f2b;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+ul {
+  display: flex;
+  justify-content: center;
 }
 
+.navbar > li > a {
+  height: 16px;
+  padding: 20px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+a:hover {
+  background: #246dac80;
+}
+
+.activeNavBtn {
+  background-color: #246cac;
+}
+
+/* Friends */
 h1 {
   text-align: center;
   padding-top: 20px;
@@ -20,20 +50,85 @@ h2 {
 }
 
 .friend-card {
-  background-color: #ffffff;
+  background-color: #151f2b;
   max-width: 300px;
   padding: 20px;
   margin: 0 auto;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid rgba(211, 211, 211, 0.445);
   cursor: pointer;
 }
 
 .friend-card:hover {
-  background-color: rgba(233, 232, 232, 0.575);
+  background-color: #242e38;
 }
 
 .friend-info {
-  border: 1px solid lightgray;
+  border: 1px solid rgba(211, 211, 211, 0.445);
   padding: 20px;
   border-radius: 15px;
+}
+
+/* Home */
+.home-wrapper {
+  background-color: #151f2b;
+  max-width: 500px;
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-content: center;
+  padding: 20px;
+}
+
+.home-wrapper > h2 {
+  padding-bottom: 30px;
+}
+
+.links {
+  padding-bottom: 10px;
+}
+
+.home-wrapper > .links > a {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+/* Friend */
+.form-container {
+  background-color: #151f2b;
+  max-width: 300px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+input {
+  padding: 5px;
+  margin: 5px;
+  color: white;
+  background-color: #2c4058;
+  border: none;
+}
+
+input::placeholder {
+  color: white;
+}
+
+button {
+  padding: 5px 0;
+  margin: 20px 40px 5px 40px;
+  color: white;
+  background-color: #246cac;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3f75a5;
 }
