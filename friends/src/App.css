@@ -1,0 +1,39 @@
+html {
+  background-color: #e7ecf0;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.friend-list-wrapper {
+  max-width: 800px;
+}
+
+.friend-card {
+  background-color: #ffffff;
+  max-width: 300px;
+  padding: 20px;
+  margin: 0 auto;
+  border-bottom: 1px solid lightgray;
+  cursor: pointer;
+}
+
+.friend-card:hover {
+  background-color: rgba(233, 232, 232, 0.575);
+}
+
+.friend-info {
+  border: 1px solid lightgray;
+  padding: 20px;
+  border-radius: 15px;
+}
