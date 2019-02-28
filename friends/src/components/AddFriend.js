@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 
 export default class AddFriend extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      age: "",
-      email: ""
-    };
-  }
+  state = {
+    name: "",
+    age: "",
+    email: ""
+  };
+
   handleChanges = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -25,6 +23,7 @@ export default class AddFriend extends Component {
   render() {
     return (
       <div className="form-container">
+        <h2>Add a Friend </h2>
         <form onSubmit={this.addFriend}>
           <input
             type="text"

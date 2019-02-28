@@ -7,7 +7,10 @@ export default function FriendsList(props) {
       {props.friends.map(friend => {
         return (
           <div className="friend-card" key={friend.id}>
-            <h2>{friend.name}</h2>
+            <h2>
+              {friend.name}
+              <span onClick={e => props.deleteFriend(e, friend.id)}>x</span>
+            </h2>
             <div className="friend-info">
               <p>Age: {friend.age}</p>
               <p>Email: {friend.email}</p>
