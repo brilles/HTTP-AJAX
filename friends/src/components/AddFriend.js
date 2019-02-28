@@ -15,7 +15,7 @@ export default class AddFriend extends Component {
     this.props.handleSubmit(
       e,
       this.state.name,
-      this.state.age,
+      parseInt(this.state.age),
       this.state.email
     );
     this.setState({ name: "", age: "", email: "" });

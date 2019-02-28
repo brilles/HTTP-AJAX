@@ -15,12 +15,12 @@ export default class UpdateFriend extends React.Component {
   updateFriendMessenger = e => {
     this.props.updateFriend(
       e,
-      this.state.id,
+      parseInt(this.state.id),
       this.state.name,
-      this.state.age,
+      parseInt(this.state.age),
       this.state.email
     );
-    this.setState({ name: "", age: "", email: "" });
+    this.setState({ id: "", name: "", age: "", email: "" });
   };
   render() {
     return (
