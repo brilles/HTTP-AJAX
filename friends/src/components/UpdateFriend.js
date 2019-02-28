@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class AddFriend extends Component {
+export default class UpdateFriend extends React.Component {
   state = {
+    id: "",
     name: "",
     age: "",
     email: ""
@@ -11,9 +12,10 @@ export default class AddFriend extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  addFriend = e => {
-    this.props.handleSubmit(
+  updateFriendMessenger = e => {
+    this.props.updateFriend(
       e,
+      this.state.id,
       this.state.name,
       this.state.age,
       this.state.email
@@ -23,8 +25,8 @@ export default class AddFriend extends Component {
   render() {
     return (
       <div className="form-container">
-        <h2>Add Friend</h2>
-        <form onSubmit={this.addFriend}>
+        <h2>Update Friend</h2>
+        <form onSubmit={this.updateFriendMessenger}>
           <input
             type="text"
             name="name"
@@ -46,7 +48,14 @@ export default class AddFriend extends Component {
             value={this.state.email}
             onChange={this.handleChanges}
           />
-          <button>Add Friend</button>
+          <input
+            type="number"
+            name="id"
+            placeholder="ID"
+            value={this.state.id}
+            onChange={this.handleChanges}
+          />
+          <button>Update Friend</button>
         </form>
       </div>
     );

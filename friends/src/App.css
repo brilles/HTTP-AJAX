@@ -22,7 +22,7 @@ ul {
 
 .navbar > li > a {
   height: 14px;
-  padding: 19px 20px;
+  padding: 19px 10px;
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
@@ -89,10 +89,19 @@ p {
   border-radius: 15px;
 }
 
+.friend-info > p > a {
+  color: #1aa34b;
+  line-height: 1.5;
+}
+
+.friend-info > p > a:hover {
+  background: none;
+}
+
 /* Home */
 .home-wrapper {
   background-color: #151f2b;
-  max-width: 300px;
+  max-width: 400px;
   margin: 110px auto;
   display: flex;
   align-items: center;
@@ -103,11 +112,12 @@ p {
 }
 
 .home-wrapper > h2 {
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 .links {
-  padding-bottom: 10px;
+  padding: 10px 0;
+  background-color: #01274b;
 }
 
 .home-wrapper > .links > a {

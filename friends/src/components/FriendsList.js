@@ -13,7 +13,9 @@ export default function FriendsList(props) {
             </h2>
             <div className="friend-info">
               <p>Age: {friend.age}</p>
-              <p>Email: {friend.email}</p>
+              <p>
+                Email: <a href={`mailto:${friend.email}`}>{friend.email}</a>
+              </p>
             </div>
           </div>
         );

@@ -5,6 +5,7 @@ import { Route, NavLink } from "react-router-dom";
 import FriendsList from "./components/FriendsList";
 import AddFriend from "./components/AddFriend";
 import Home from "./components/Home";
+import UpdateFriend from "./components/UpdateFriend";
 
 import "./App.css";
 
@@ -19,12 +20,11 @@ class App extends Component {
     axios
       .get("http://localhost:5000/friends")
       .then(res => {
-        console.log(res.data);
         this.setState({ friends: res.data });
       })
       .catch(err => {
-        console.log(err);
         this.setState({ error: err });
+        console.log(err);
       });
   }
 
@@ -35,22 +35,50 @@ class App extends Component {
       age: age,
       email: email
     };
-    this.setState({
-      friends: [...this.state.friends, newFriend]
-    });
-    axios.post("http://localhost:5000/friends", {
-      name,
-      age,
-      email
-    });
+    axios
+      .post("http://localhost:5000/friends", newFriend)
+      .then(res => {
+        this.setState({
+          friends: res.data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   deleteFriend = (e, id) => {
     e.preventDefault();
-    this.setState({
-      friends: [...this.state.friends.filter(friend => friend.id !== id)]
-    });
-    axios.delete(`http://localhost:5000/friends/${id}`);
+    axios
+      .delete(`http://localhost:5000/friends/${id}`)
+      .then(res => {
+        this.setState({
+          friends: res.data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  updateFriend = (e, id, name, age, email) => {
+    e.preventDefault();
+    const friend = {
+      id: id,
+      name: name,
+      age: age,
+      email: email
+    };
+    axios
+      .put(`http://localhost:5000/friends/${id}`, friend)
+      .then(res => {
+        this.setState({
+          friends: res.data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   render() {
@@ -71,6 +99,11 @@ class App extends Component {
           <li>
             <NavLink to="/addfriend" activeClassName="activeNavBtn">
               Add Friend
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/updatefriend" activeClassName="activeNavBtn">
+              Update Friend
             </NavLink>
           </li>
         </ul>
@@ -97,6 +130,17 @@ class App extends Component {
             <AddFriend
               {...props}
               handleSubmit={this.handleSubmit}
+              friends={friends}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/updatefriend"
+          render={props => (
+            <UpdateFriend
+              {...props}
+              updateFriend={this.updateFriend}
               friends={friends}
             />
           )}
